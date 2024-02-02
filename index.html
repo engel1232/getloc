@@ -1,25 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My First Webpage</title>
+    <title>Location History</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            background-color: #333;
+            color: #00ff00;
+            padding: 20px;
         }
         h1 {
-            color: navy;
+            font-size: 24px;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
-        p {
-            color: #333;
+        .loading-container {
+            font-size: 18px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+        .loading {
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 18px;
+            background-color: #444;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+            display: none;
         }
     </style>
+    <script>
+        setTimeout(function() {
+            document.querySelector('.loading-container').style.display = 'none';
+            document.querySelector('.message').style.display = 'block';
+        }, 3000); // Display the message after 3 seconds (3000 milliseconds)
+    </script>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is a simple HTML page. Feel free to customize it and explore the possibilities of web development.</p>
-    <p>Learn more about HTML <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">here</a>.</p>
+    <h1>Location History Data</h1>
+    <div class="loading-container">
+        <div class="loading">Transferring data...</div>
+        <div class="loading">
+            <div class="loader"></div>
+        </div>
+    </div>
+    <div class="message" style="display:none;">Location history of the last 90 days successfully sent to host!</div>
 </body>
 </html>
