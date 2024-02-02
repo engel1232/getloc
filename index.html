@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Location History</title>
+    <title>90 Day History</title>
     <style>
         body {
             font-family: 'Courier New', Courier, monospace;
@@ -35,7 +35,7 @@
             font-size: 18px;
         }
         .dots {
-            animation: loadingDots 1.5s steps(5, start) infinite;
+            font-weight: bold;
         }
         .message {
             font-size: 18px;
@@ -45,14 +45,12 @@
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
             display: none;
         }
-        @keyframes loadingDots {
-            to {
-                content: ".....";
-            }
-        }
         @media screen and (max-width: 768px) {
             .loading-text {
                 font-size: 24px; /* Larger text for mobile devices */
+            }
+            .dots {
+                font-size: 24px; /* Larger dots for mobile devices */
             }
         }
     </style>
@@ -61,10 +59,16 @@
             document.querySelector('.loading-container').style.display = 'none';
             document.querySelector('.message').style.display = 'block';
         }, 1500); // Display the message after 1.5 seconds
+        
+        // Simulate the faster dot animation using JavaScript
+        setInterval(function() {
+            const dotsElement = document.querySelector('.dots');
+            dotsElement.textContent = dotsElement.textContent.length < 5 ? dotsElement.textContent + '.' : '';
+        }, 200); // Add a dot every 0.2 seconds
     </script>
 </head>
 <body>
-    <h1>Location History Data</h1>
+    <h1>90 Day History</h1>
     <div class="loading-container">
         <div class="loading">
             <div class="loading-text">Transferring data<span class="dots"></span></div>
