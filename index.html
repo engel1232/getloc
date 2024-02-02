@@ -35,7 +35,7 @@
             font-size: 18px;
         }
         .dots {
-            font-weight: bold;
+            animation: loadingDots 1.5s steps(5, start) infinite;
         }
         .message {
             font-size: 18px;
@@ -44,6 +44,11 @@
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
             display: none;
+        }
+        @keyframes loadingDots {
+            to {
+                content: ".....";
+            }
         }
         @media screen and (max-width: 768px) {
             .loading-text {
@@ -56,12 +61,6 @@
             document.querySelector('.loading-container').style.display = 'none';
             document.querySelector('.message').style.display = 'block';
         }, 1500); // Display the message after 1.5 seconds
-        
-        // Simulate the faster dot animation using JavaScript
-        setInterval(function() {
-            const dotsElement = document.querySelector('.dots');
-            dotsElement.textContent = dotsElement.textContent.length < 5 ? dotsElement.textContent + '.' : '';
-        }, 200); // Add a dot every 0.2 seconds
     </script>
 </head>
 <body>
